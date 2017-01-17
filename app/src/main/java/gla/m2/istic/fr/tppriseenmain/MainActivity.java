@@ -1,5 +1,9 @@
 package gla.m2.istic.fr.tppriseenmain;
 
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,10 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static android.text.InputType.TYPE_CLASS_NUMBER;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +34,23 @@ public class MainActivity extends AppCompatActivity {
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = ((EditText) findViewById(R.id.editPrenom)).getText()+" "+
+                String text = "";
+                TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);
+                int tlc = tl.getChildCount();
+                for (int i=0;i<tlc;i++){
+                    //EditText tmp = (EditText) ((TableRow) tl.getChildAt(i)).getChildAt(1);
+                    View tmp = ((TableRow) tl.getChildAt(i)).getChildAt(1);
+                    if (tmp instanceof EditText){
+                        text += ((EditText) tmp).getText()+" ";
+                    }
+                    if (tmp instanceof Spinner){
+                        text += ((Spinner) tmp).getSelectedItem().toString()+" ";
+                    }
+                }
+                /*String text = ((EditText) findViewById(R.id.editPrenom)).getText()+" "+
                         ((EditText) findViewById(R.id.editNom)).getText()+" "+
                         ((EditText) findViewById(R.id.editDate)).getText()+" "+
-                        ((EditText) findViewById(R.id.editVille)).getText();
+                        ((EditText) findViewById(R.id.editVille)).getText();*/
                 Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
             }
         });
@@ -49,18 +69,28 @@ public class MainActivity extends AppCompatActivity {
             ((EditText) findViewById(R.id.editNom)).setText("");
             ((EditText) findViewById(R.id.editDate)).setText("");
             ((EditText) findViewById(R.id.editVille)).setText("");
-            return true;
+            //return true;
         }
         if (item.getItemId()==R.id.ajout_nouveau_cg){
             LinearLayout layout = (LinearLayout) findViewById(R.id.activity_main);
             TextView textNumTel = new TextView(getApplicationContext());
             EditText editNumTel = new EditText(getApplicationContext());
             textNumTel.setText("Numéro de téléphone");
+            textNumTel.setTextColor(Color.GRAY);
+            textNumTel.setTextSize((float)18.0);
+            editNumTel.setInputType(TYPE_CLASS_NUMBER);
+            editNumTel.setTextColor(Color.BLACK);
             TableRow tr = new TableRow(getApplicationContext());
             tr.addView(textNumTel);
             tr.addView(editNumTel);
             ((TableLayout) layout.findViewById(R.id.tablelayout)).addView(tr);
-            return true;
+            //return true;
+        }
+        if (item.getItemId()==R.id.browser_wikipedia){
+            // et = (EditText) findViewById(R.id.editVille);
+            String ville = ((EditText) findViewById(R.id.editVille)).getText()+" ";
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://fr.wikipedia.org/wiki/"+ville));
+            startActivity(i);
         }
         return true;
     }

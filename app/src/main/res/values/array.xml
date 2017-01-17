@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departements">
+        <item>Côtes d\'Armor</item>
+        <item>Val d\'Oise</item>
+        <item>Ille-et-Vilaine</item>
+        <item>Seine Saint-Denis</item>
+        <item>Val de Marne</item>
+        <item>Var</item>
+        <item>Finistère</item>
+        <item>Gironde</item>
+    </string-array>
+</resources>

@@ -98,6 +98,22 @@
                 android:ems="10"
                 android:id="@+id/editVille" />
         </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Département"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textDepartement"
+                android:textSize="18sp"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerDepartement"
+                android:entries="@array/departements"
+                />
+        </TableRow>
     </TableLayout>
 
     <Button

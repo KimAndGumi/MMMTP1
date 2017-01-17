@@ -34,11 +34,16 @@ public class MainActivity extends AppCompatActivity {
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(),SecondActivity.class);
+                in.putExtra("nom",((EditText) findViewById(R.id.editNom)).getText());
+                in.putExtra("prenom",((EditText) findViewById(R.id.editPrenom)).getText());
+                in.putExtra("ville",((EditText) findViewById(R.id.editVille)).getText());
+                in.putExtra("date",((EditText) findViewById(R.id.editDate)).getText());
+                startActivity(in);
                 String text = "";
                 TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);
                 int tlc = tl.getChildCount();
                 for (int i=0;i<tlc;i++){
-                    //EditText tmp = (EditText) ((TableRow) tl.getChildAt(i)).getChildAt(1);
                     View tmp = ((TableRow) tl.getChildAt(i)).getChildAt(1);
                     if (tmp instanceof EditText){
                         text += ((EditText) tmp).getText()+" ";
@@ -47,10 +52,6 @@ public class MainActivity extends AppCompatActivity {
                         text += ((Spinner) tmp).getSelectedItem().toString()+" ";
                     }
                 }
-                /*String text = ((EditText) findViewById(R.id.editPrenom)).getText()+" "+
-                        ((EditText) findViewById(R.id.editNom)).getText()+" "+
-                        ((EditText) findViewById(R.id.editDate)).getText()+" "+
-                        ((EditText) findViewById(R.id.editVille)).getText();*/
                 Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
             }
         });

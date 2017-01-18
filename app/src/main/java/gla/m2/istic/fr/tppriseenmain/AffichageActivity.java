@@ -16,7 +16,7 @@ import static android.text.InputType.TYPE_CLASS_NUMBER;
  * Created by nirina on 17/01/17.
  */
 
-public class SecondActivity extends AppCompatActivity {
+public class AffichageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

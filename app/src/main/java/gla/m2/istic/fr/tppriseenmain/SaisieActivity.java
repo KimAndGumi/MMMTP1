@@ -1,10 +1,8 @@
 package gla.m2.istic.fr.tppriseenmain;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -23,7 +20,7 @@ import android.widget.Toast;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
-public class MainActivity extends AppCompatActivity {
+public class SaisieActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(),SecondActivity.class);
+                Intent in = new Intent(getApplicationContext(),AffichageActivity.class);
                 in.putExtra("nom",((EditText) findViewById(R.id.editNom)).getText());
                 in.putExtra("prenom",((EditText) findViewById(R.id.editPrenom)).getText());
                 in.putExtra("ville",((EditText) findViewById(R.id.editVille)).getText());
@@ -89,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId()==R.id.browser_wikipedia){
             // et = (EditText) findViewById(R.id.editVille);
-            String ville = ((EditText) findViewById(R.id.editVille)).getText()+" ";
+            String ville = ((EditText) findViewById(R.id.editVille)).getText()+"";
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://fr.wikipedia.org/wiki/"+ville));
             startActivity(i);
         }

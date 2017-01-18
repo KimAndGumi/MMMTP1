@@ -32,10 +32,10 @@ public class SaisieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getApplicationContext(),AffichageActivity.class);
-                in.putExtra("nom",((EditText) findViewById(R.id.editNom)).getText());
-                in.putExtra("prenom",((EditText) findViewById(R.id.editPrenom)).getText());
-                in.putExtra("ville",((EditText) findViewById(R.id.editVille)).getText());
-                in.putExtra("date",((EditText) findViewById(R.id.editDate)).getText());
+                in.putExtra("nom",((EditText) findViewById(R.id.editNom)).getText().toString());
+                in.putExtra("prenom",((EditText) findViewById(R.id.editPrenom)).getText().toString());
+                in.putExtra("ville",((EditText) findViewById(R.id.editVille)).getText().toString());
+                in.putExtra("date",((EditText) findViewById(R.id.editDate)).getText().toString());
                 startActivity(in);
                 String text = "";
                 TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);

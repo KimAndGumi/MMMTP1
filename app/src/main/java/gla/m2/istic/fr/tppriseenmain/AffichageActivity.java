@@ -4,13 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
-
-import static android.text.InputType.TYPE_CLASS_NUMBER;
 
 /**
  * Created by nirina on 17/01/17.
@@ -21,13 +16,14 @@ public class AffichageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_secondary);
+        setContentView(R.layout.activity_affichage);
 
         Intent i = getIntent();
-        String nom = i.getStringExtra("nom");
-        String prenom = i.getStringExtra("prenom");
-        String ville = i.getStringExtra("ville");
-        String date = i.getStringExtra("date");
+        InfoParcelable ip = i.getParcelableExtra("info");
+        String nom = ip.nom;
+        String prenom = ip.prenom;
+        String ville = ip.ville;
+        String date = ip.date;
 
         /*((TextView) findViewById(R.id.textNom2)).setText(nom);
         ((TextView) findViewById(R.id.textPrenom2)).setText(prenom);

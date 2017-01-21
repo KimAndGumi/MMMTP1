@@ -1,5 +1,6 @@
 package gla.m2.istic.fr.tppriseenmain;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -43,18 +44,15 @@ public class SaisieActivity extends AppCompatActivity {
         boutonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), AffichageActivity.class);
+                Intent in = new Intent(getApplicationContext(), ListActivity.class);
                 String nom = ((EditText) findViewById(R.id.editNom)).getText().toString();
                 String prenom = ((EditText) findViewById(R.id.editPrenom)).getText().toString();
                 String ville = ((EditText) findViewById(R.id.editVille)).getText().toString();
                 String date = ((EditText) findViewById(R.id.editDate)).getText().toString();
                 InfoParcelable ip = new InfoParcelable(nom,prenom,ville,date);
                 in.putExtra("info",ip);
-                /*in.putExtra("nom", nom);
-                in.putExtra("prenom", prenom);
-                in.putExtra("ville", ville);
-                in.putExtra("date", date);*/
-                startActivity(in);
+                setResult(Activity.RESULT_OK,in);
+                finish();
                 /*String text = "";
                 TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);
                 int tlc = tl.getChildCount();
@@ -88,7 +86,6 @@ public class SaisieActivity extends AppCompatActivity {
             ((EditText) findViewById(R.id.editNom)).setText("");
             ((EditText) findViewById(R.id.editDate)).setText("");
             ((EditText) findViewById(R.id.editVille)).setText("");
-            //return true;
         }
         if (item.getItemId() == R.id.ajout_nouveau_cg) {
             LinearLayout layout = (LinearLayout) findViewById(R.id.activity_main);
@@ -103,10 +100,8 @@ public class SaisieActivity extends AppCompatActivity {
             tr.addView(textNumTel);
             tr.addView(editNumTel);
             ((TableLayout) layout.findViewById(R.id.tablelayout)).addView(tr);
-            //return true;
         }
         if (item.getItemId() == R.id.browser_wikipedia) {
-            // et = (EditText) findViewById(R.id.editVille);
             String ville = ((EditText) findViewById(R.id.editVille)).getText() + "";
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://fr.wikipedia.org/wiki/" + ville));
             startActivity(i);

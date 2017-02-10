@@ -1,4 +1,4 @@
-package gla.m2.istic.fr.tppriseenmain;
+package gla.m2.istic.fr.tppriseenmain.parcelable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -27,6 +27,22 @@ public class InfoParcelable implements Parcelable {
         prenom = in.readString();
         ville = in.readString();
         date = in.readString();
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public static final Creator<InfoParcelable> CREATOR = new Creator<InfoParcelable>() {

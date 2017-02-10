@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="gla.m2.istic.fr.tppriseenmain.SaisieActivity"
+    tools:context="gla.m2.istic.fr.tppriseenmain.activities.SaisieActivity"
     android:layout_alignLeft="@id/activity_main">
 
     <TableLayout

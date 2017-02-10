@@ -1,4 +1,4 @@
-package gla.m2.istic.fr.tppriseenmain;
+package gla.m2.istic.fr.tppriseenmain.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import gla.m2.istic.fr.tppriseenmain.parcelable.InfoParcelable;
+import gla.m2.istic.fr.tppriseenmain.R;
 
 /**
  * Created by nirina on 17/01/17.
@@ -20,10 +23,10 @@ public class AffichageActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         InfoParcelable ip = i.getParcelableExtra("info");
-        String nom = ip.nom;
-        String prenom = ip.prenom;
-        String ville = ip.ville;
-        String date = ip.date;
+        String nom = ip.getNom();
+        String prenom = ip.getPrenom();
+        String ville = ip.getVille();
+        String date = ip.getDate();
 
         /*((TextView) findViewById(R.id.textNom2)).setText(nom);
         ((TextView) findViewById(R.id.textPrenom2)).setText(prenom);

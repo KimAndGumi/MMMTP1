@@ -3,6 +3,9 @@ package gla.m2.istic.fr.tppriseenmain.parcelable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by nirina on 19/01/17.
  */
@@ -13,6 +16,10 @@ public class InfoParcelable implements Parcelable {
     String prenom;
     String ville;
     String date;
+
+    public InfoParcelable(){
+        super();
+    }
 
     public InfoParcelable(String nom, String prenom, String ville, String date){
         super();
@@ -68,5 +75,14 @@ public class InfoParcelable implements Parcelable {
         dest.writeString(prenom);
         dest.writeString(ville);
         dest.writeString(date);
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("prenom",prenom);
+        result.put("nom",nom);
+        result.put("ville",ville);
+        result.put("date",date);
+        return result;
     }
 }

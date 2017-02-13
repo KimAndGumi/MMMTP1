@@ -45,12 +45,13 @@ public class InfoProvider extends ContentProvider {
         return cursor;
     }
 
-    public Cursor filterByName(String name){
+    /*public Cursor filterByName(String name){
         SQLiteDatabase db = helper.getReadableDatabase();
+
         Cursor cursor = db.query("infos",new String[]{"firstname","lastname","birthtown","birthdate"},
                 "lastname",new String[]{name},null,null,null);
         return cursor;
-    }
+    }*/
 
     @Nullable
     @Override
